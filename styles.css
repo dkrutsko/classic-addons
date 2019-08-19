@@ -1,0 +1,200 @@
+
+/*----------------------------------------------------------------------------*/
+/* Main                                                                       */
+/*----------------------------------------------------------------------------*/
+
+body
+{
+	overflow-y: scroll;
+	background: rgb(245, 245, 245);
+}
+
+#main
+{
+	display: flex;
+	flex-direction: column;
+	min-height: 100vh;
+	position: relative;
+}
+
+::-moz-selection
+{
+	     color: rgb(240, 240, 240);
+	background: rgb(100, 145, 180);
+}
+
+::selection
+{
+	     color: rgb(240, 240, 240);
+	background: rgb(100, 145, 180);
+}
+
+
+
+/*----------------------------------------------------------------------------*/
+/* Common                                                                     */
+/*----------------------------------------------------------------------------*/
+
+#main .noselect       { user-select: none    !important; }
+
+/*----------------------------------------------------------------------------*/
+
+#main .cursor-default { cursor: default      !important; }
+#main .cursor-none    { cursor: none         !important; }
+
+#main .cursor-menu    { cursor: context-menu !important; }
+#main .cursor-help    { cursor: help         !important; }
+#main .cursor-pointer { cursor: pointer      !important; }
+#main .cursor-wait    { cursor: wait         !important; }
+
+#main .cursor-text    { cursor: text         !important; }
+#main .cursor-deny    { cursor: not-allowed  !important; }
+
+
+
+/*----------------------------------------------------------------------------*/
+/* Components                                                                 */
+/*----------------------------------------------------------------------------*/
+
+#main tbody tr:hover
+{
+	background: rgb(240, 240, 240);
+}
+
+/*----------------------------------------------------------------------------*/
+
+#main a.copy-link
+{
+	color: #6C757D;
+	border-bottom: 1px dashed #6C757D;
+	text-decoration: none;
+}
+
+/*----------------------------------------------------------------------------*/
+
+#main .header
+{
+	   outline: none;
+	    border: none;
+	box-shadow: none;
+	font-weight: 700;
+
+	padding: 0px;
+	background: rgb(245, 245, 245);
+}
+
+#main .header:focus::placeholder
+{
+	color:transparent;
+}
+
+/*----------------------------------------------------------------------------*/
+
+#main .tip
+{
+	position: relative;
+}
+
+#main .tip .text
+{
+	position: absolute;
+	left: 115%; top: 1rem;
+	width: 240px;
+
+	     color: white;
+	background: black;
+	border-radius: 0.5rem;
+	padding: 0.5rem 0rem;
+	pointer-events: none;
+
+	opacity: 0;
+	transition: opacity 250ms;
+}
+
+#main .tip i:hover ~ .text
+{
+	opacity: 1;
+}
+
+/*----------------------------------------------------------------------------*/
+
+#main .wowhead
+{
+	width: 2rem;
+	padding-left: 0.25rem;
+	user-select: none;
+}
+
+
+
+/*----------------------------------------------------------------------------*/
+/* Noscript                                                                   */
+/*----------------------------------------------------------------------------*/
+
+#main .noscript
+{
+	display: flex;
+
+	    align-items: center;
+	     text-align: center;
+	justify-content: center;
+	 flex-direction: column;
+
+	position: absolute;
+	 left: 0px;    top: 0px;
+	right: 0px; bottom: 0px;
+
+	background: white;
+}
+
+@keyframes noscript-slide
+{
+	  0% { background-position:    0px; }
+	100% { background-position: -128px; }
+}
+
+#main .noscript .message
+{
+	width: 100%;
+	border-top:    1px solid rgb(210, 210, 210);
+	border-bottom: 1px solid rgb(210, 210, 210);
+
+	background: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='128px' height='128px' viewBox='0 0 128 128'%3E%3Cpolygon opacity='0.05' points='0 64 64 0 0 0' /%3E%3Cpolygon opacity='0.05' points='0 128 128 0 128 64 64 128' /%3E%3C/svg%3E");
+	animation: noscript-slide 4s linear infinite;
+}
+
+#main .noscript .text
+{
+	 margin: 0rem 0rem;
+	padding: 6rem 0rem;
+}
+
+
+
+/*----------------------------------------------------------------------------*/
+/* GitHub                                                                     */
+/*----------------------------------------------------------------------------*/
+
+#github svg
+{
+	 width: 80px;
+	height: 80px;
+	position: fixed;
+	top: 0; right: 0;
+}
+
+@keyframes octocat-wave
+{
+	  0% { transform: rotate(  0deg); }
+	 20% { transform: rotate(-25deg); }
+	 40% { transform: rotate( 10deg); }
+	 60% { transform: rotate(-25deg); }
+	 80% { transform: rotate( 10deg); }
+	100% { transform: rotate(  0deg); }
+}
+
+#github:hover .octo-arm
+{
+	animation: octocat-wave 560ms ease-in-out;
+	transform-origin: 130px 106px;
+}
