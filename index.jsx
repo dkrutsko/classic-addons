@@ -211,10 +211,19 @@ Papa.parse ("addons.csv",
 				// Iterate through addons
 				for (let addon of addons)
 				{
-					if (addon[service] && regex.test (normalize (addon.name)))
+					let s = service;
+					// Check for special preferred copying
+					if (s === "preferred" && !(s = addon[s]))
 					{
-						links.push (toLink[service] (addon[service]));
-						wowas.push (toWoWA[service] (addon[service]));
+						if (addon.curse) s = "curse"; else
+						if (addon.wowi ) s = "wowi";  else
+						if (addon.repo ) s = "repo";
+					}
+
+					if (addon[s] && regex.test (normalize (addon.name)))
+					{
+						links.push (toLink[s] (addon[s]));
+						wowas.push (toWoWA[s] (addon[s]));
 					}
 				}
 
@@ -281,10 +290,10 @@ Papa.parse ("addons.csv",
 								</span>
 							</td>
 
-							<td></td>
-							<td className="text-center"><CopyAll service="curse">Curse Forge  </CopyAll></td>
-							<td className="text-center"><CopyAll service="wowi" >WoW Interface</CopyAll></td>
-							<td className="text-center"><CopyAll service="repo" >GitHub       </CopyAll></td>
+							<td className="text-center"><CopyAll service="preferred">Preferred    </CopyAll></td>
+							<td className="text-center"><CopyAll service="curse"    >Curse Forge  </CopyAll></td>
+							<td className="text-center"><CopyAll service="wowi"     >WoW Interface</CopyAll></td>
+							<td className="text-center"><CopyAll service="repo"     >GitHub       </CopyAll></td>
 						</tr>
 
 					</tbody>
