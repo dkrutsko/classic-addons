@@ -128,6 +128,57 @@ body
 
 
 /*----------------------------------------------------------------------------*/
+/* Loader                                                                     */
+/*----------------------------------------------------------------------------*/
+
+#main .loader
+{
+	position: absolute;
+	transform: translate(-32px, -32px);
+	left: 50%; top: 50%;
+}
+
+#main .loader .line-1,
+#main .loader .line-2,
+#main .loader .line-3
+{
+	 width: 64px;
+	height: 64px;
+	position: absolute;
+	top: 0px; left: 0px;
+
+	border-top:  4px solid #04AFFF;
+	border-left: 2px solid #04AFFF;
+	border-radius: 64px;
+
+	animation: 700ms linear infinite;
+}
+
+@keyframes loader-rotation-1
+{
+	  0% { transform: rotateX(65deg) rotateZ( 45deg); }
+	100% { transform: rotateX(65deg) rotateZ(405deg); }
+}
+
+@keyframes loader-rotation-2
+{
+	  0% { transform: rotateX(-45deg) rotateY(45deg) rotateZ(180deg); }
+	100% { transform: rotateX(-45deg) rotateY(45deg) rotateZ(540deg); }
+}
+
+@keyframes loader-rotation-3
+{
+	  0% { transform: rotateX(45deg) rotateY(45deg) rotateZ(270deg); }
+	100% { transform: rotateX(45deg) rotateY(45deg) rotateZ(630deg); }
+}
+
+#main .loader .line-1 { animation-name: loader-rotation-1; }
+#main .loader .line-2 { animation-name: loader-rotation-2; }
+#main .loader .line-3 { animation-name: loader-rotation-3; }
+
+
+
+/*----------------------------------------------------------------------------*/
 /* Noscript                                                                   */
 /*----------------------------------------------------------------------------*/
 
